@@ -1,6 +1,6 @@
 ## Electron Lessons
 
-### Lesson 2
+### Lesson 3
 
-This lesson is about how to save application data and persist the data across restarts of the application.
-For this example we store the position of the app window, and after closing and starting again the window positions itself where it was the last time.
+You can preload a script within an internal page on your webContents view that will run on load.
+In this our case we have a webview that logs document tags to its parent page by running a preloaded script.
