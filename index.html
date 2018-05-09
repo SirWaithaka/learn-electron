@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
   <title>Document</title>
-  <style>
-    webview {
-      border: 1px solid #ebebeb;
-    }
-  </style>
 </head>
 <body>
+  <h3>Main and Renderer interprocess communication</h3>
   
-  <webview id="webview" preload="./preload.js" src="./webview.html"></webview>
-  <button id="devtools">Open the webview's devtools</button>
+  <button id="btn">Show dialog with IPC</button>
+  <button id="btn2">Show dialog with remote</button>
 
   <script>
     require('./renderer')
