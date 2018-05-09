@@ -1,0 +1,21 @@
+{
+  "name": "electron",
+  "version": "0.0.0",
+  "description": "This is my journey towards learning electron app desktop environment. I really hope am gonna finish this one.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:craftsmon/shop.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Craftsmon Babou <craftsmon@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}
