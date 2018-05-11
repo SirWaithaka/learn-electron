@@ -2,9 +2,9 @@
   "name": "electron",
   "version": "0.0.0",
   "description": "This is my journey towards learning electron app desktop environment. I really hope am gonna finish this one.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "start": "electron index.js"
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,6 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
+    "axios": "^0.18.0"
   }
 }
