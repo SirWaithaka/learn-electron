@@ -19,6 +19,7 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
-    "devtron": "^1.4.0"
+    "devtron": "^1.4.0",
+    "keytar": "^4.2.1"
   }
 }

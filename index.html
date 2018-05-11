@@ -4,10 +4,13 @@
   <title>Document</title>
 </head>
 <body>
-  <h3>Main and Renderer interprocess communication</h3>
+  <h3>Storing sensitive data</h3>
   
-  <button id="btn">Show dialog with IPC</button>
-  <button id="btn2">Show dialog with remote</button>
+  <button id="getBtn">Get Secret</button>
+  <button id="setBtn">Set Secret</button>
+  <input type="text" id="secretVal">
+
+  <h3 id="output"></h3>
 
   <script>
     require('./renderer')
