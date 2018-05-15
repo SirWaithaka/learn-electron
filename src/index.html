@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Electron Bitcoin</title>
+  <title>Learn Electron</title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
-  <div class="row">
-    <div id="price-container">
-      <p class="subtext">Current BTC USD</p>
-      <h1 id="price">Loading..</h1>
-    </div>
-    <div id="goal-container">
-      <p>
-        <img src="../assets/images/up.svg">
-        <span id="targetPrice">Choose a Target Price</span>
-      </p>
-    </div>
-    <div id="right-container">
-      <button id="notifyBtn">Notify me when..</button>
-    </div>
+  <div id="app" class="container-fluid bg-dark align-self-stretch">
+    <h1 class="h3">Hello</h1>
   </div>
-  
-  <script src="index.js"></script>
+  <!-- <script src="../node_modules/vue/dist/vue.min.js"></script>
+  <script src="../node_modules/vue-router/dist/vue-router.min.js"></script>
+  <script src="../node_modules/vuex/dist/vuex.min.js"></script> -->
+
+  <script src="../node_modules/jquery/jquery.min.js"></script>
+  <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    require('./renderer/index.js')
+  </script>
 </body>
 </html>
