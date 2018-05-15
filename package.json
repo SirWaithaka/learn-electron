@@ -1,18 +1,30 @@
 {
-  "name": "electron",
+  "name": "learn-electron",
+  "description": "### Clean Clean setup for learning electron",
   "version": "0.0.0",
-  "description": "This is my journey towards learning electron app desktop environment. I really hope am gonna finish this one.",
   "main": "main.js",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "1.9",
+    "popper.js": "1.14",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "electron": "^2.0.0"
+  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:craftsmon/shop.git"
+    "url": "git+ssh://git@github.com/craftsmon/learn-electron.git"
   },
   "keywords": [
     "electron"
   ],
+<<<<<<< 1a8b7a32fa6ba1633cff5fa5954d4c573280d0f3
   "author": "Craftsmon Babou <craftsmon@outlook.com>",
   "license": "MIT",
   "devDependencies": {
@@ -21,4 +33,12 @@
   "dependencies": {
     "axios": "^0.18.0"
   }
+=======
+  "author": "Craftsman Babou <craftsmon@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/craftsmon/learn-electron/issues"
+  },
+  "homepage": "https://github.com/craftsmon/learn-electron#readme"
+>>>>>>> Setting up env
 }
