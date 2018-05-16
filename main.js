@@ -118,9 +118,22 @@ ipc.on('update-notify-value', (e, arg) => {
 // code. You can also put them in separate files and require them here.
 function openFolderDialog () {
 	dialog.showOpenDialog(win, {
-		properties: ['openFile']
+		properties: ['openDirectory']
 	}, function (filePath) {
-		win.webContents.send('music-file-path', filePath[0])
+		// read directory
+		fs.readdir(filePath[0], (err, files) => {
+			let arr = []
+
+			// loop over files for mp3 audio
+			for(let i = 0; i < files.length; i ++) {
+				if (files[i].substr(-4) === '.mp3') {
+					arr.push(files[i])
+				}
+			}
+			let obj = {}
+			obj.files = arr
+			obj.path = filePath[0]
+			win.webContents.send('sentMusicTracks', obj)
+		})
 	})
-}
->>>>>>> Most of the heavy llifting is done
+}>>>>>>> Most of the heavy llifting is done
