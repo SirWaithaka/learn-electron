@@ -25,21 +25,10 @@
   "keywords": [
     "electron"
   ],
-<<<<<<< 1a8b7a32fa6ba1633cff5fa5954d4c573280d0f3
-  "author": "Craftsmon Babou <craftsmon@outlook.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "electron": "^2.0.0"
-  },
-  "dependencies": {
-    "axios": "^0.18.0"
-  }
-=======
   "author": "Craftsman Babou <craftsmon@outlook.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/craftsmon/learn-electron/issues"
   },
   "homepage": "https://github.com/craftsmon/learn-electron#readme"
->>>>>>> Setting up env
 }

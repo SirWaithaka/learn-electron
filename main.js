@@ -1,52 +1,3 @@
-<<<<<<< a80a021afc3bbfbe9d4dd16ba3019f20f4ce2747
-const path = require('path')
-const url = require('url')
-
-const { app, BrowserWindow, Menu, shell } = require('electron')
-const { ipcMain: ipc } = require('electron')
-
-let win
-
-function createWindow () {
-  win = new BrowserWindow({ height: 600, width: 800 })
-
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'src/index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
-
-  // Open DevTools
-  win.webContents.openDevTools()
-
-  // Emitted when the Window is closed
-  win.on('closed', () => {
-    win = null
-  })
-
-  let menu = Menu.buildFromTemplate([
-    {
-      label: 'Menu',
-      submenu: [
-        { label: 'Adjust Notification Value' },
-        {
-          label: 'CoinMarketCap',
-          click() {
-            shell.openExternal('https://google.com')
-          }
-        },
-        { type: 'separator' },
-        {
-          label: 'Exit',
-          click() {
-            app.quit()
-          }
-        }
-      ]
-    }
-  ])
-  Menu.setApplicationMenu(menu)
-=======
 const fs = require('fs')
 const path = require('path')
 const url = require('url')
@@ -94,7 +45,6 @@ function createWindow () {
 	}
 	let menu = Menu.buildFromTemplate([menuTemplate])
 	Menu.setApplicationMenu(menu)
->>>>>>> Most of the heavy llifting is done
 }
 
 app.on('ready', createWindow)
@@ -109,11 +59,6 @@ app.on('activate', () => {
   }
 })
 
-<<<<<<< a80a021afc3bbfbe9d4dd16ba3019f20f4ce2747
-ipc.on('update-notify-value', (e, arg) => {
-  win.webContents.send('targetPriceVal', arg)
-})
-=======
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 function openFolderDialog () {
@@ -136,4 +81,4 @@ function openFolderDialog () {
 			win.webContents.send('sentMusicTracks', obj)
 		})
 	})
-}>>>>>>> Most of the heavy llifting is done
+}
