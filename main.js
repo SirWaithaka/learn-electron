@@ -19,9 +19,6 @@ function createWindow () {
 		slashes: true
 	}))
 
-	// Open the DevTools.
-	win.webContents.openDevTools()
-
 	// Emitted when the window is closed.
 	win.on('closed', () => {
 		// Dereference the window object, usually you would store windows
@@ -31,19 +28,33 @@ function createWindow () {
 	})
 
 	// Build Menu
-	let menuTemplate = {
-		label: 'File',
-		submenu: [
-			{
-				label: 'Sound Control',
-				accelerator: 'Ctrl+O',
-				click () {
-					openFolderDialog()
+	let menuTemplate = [
+		{
+			label: 'File',
+			submenu: [
+				{
+					label: 'Sound Control',
+					accelerator: 'Ctrl+O',
+					click () {
+						openFolderDialog()
+					}
 				}
-			}
-		]
-	}
-	let menu = Menu.buildFromTemplate([menuTemplate])
+			]	
+		},
+		{
+			label: 'Window',
+			submenu: [
+				{
+					label: 'Toggle Developer Tools',
+					accelerator: 'Ctrl+Shift+I',
+					click () {
+						win.webContents.openDevTools()
+					}
+				}
+			]
+		}
+	]
+	let menu = Menu.buildFromTemplate(menuTemplate)
 	Menu.setApplicationMenu(menu)
 }
 
