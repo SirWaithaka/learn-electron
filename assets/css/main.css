@@ -24,3 +24,14 @@ body {
     font-family: 'Roboto';
     font-weight: 500;
 }
+.progress {
+    cursor: pointer;
+    height: 0.1rem;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: height;
+}
+.progress:hover {
+    height: 0.4rem;
+}
