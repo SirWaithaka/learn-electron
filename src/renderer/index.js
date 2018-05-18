@@ -2,39 +2,41 @@ const {ipcRenderer} = require('electron')
 const {Howl} = require('howler')
 const Vue = require('vue/dist/vue')
 
-let song = null
-
 let app = new Vue({
   el: '#app',
   data: {
     player: null,
-    timer: 0,
     tracks: [],
     track: {
       name: null,
-      playing: false
+      playing: false,
+      length: 0
     }
   },
   computed: {
-    select: {
-      get () { return song ? true : false },
-      set (v) { return this.musicSelected = v }
+    length () {
+      return this.player ? this.player.song.length : '0.00'
     },
-    song () {
-      return new Howl({
-        src: [this.audio]
-      }) 
+    name () {
+      return this.player ? this.player.song.name : this.track.name
     }
   },
   methods: {
     playMusic () {
-      if (this.track.playing) {
-        this.track.playing = false
-        this.player.pause()
+      
+      if (!this.track.playing) {
+        
+        if (this.player) {
+          this.player.play()
+          this.track.playing = true
+        }
       }
       else {
-        this.track.playing = true
-        this.player.play()
+        this.track.playing = false
+        
+        if (this.player) {
+          this.player.pause()
+        }
       }
     }
   },
@@ -55,22 +57,18 @@ let app = new Vue({
       }
 
       this.player = new Player(this, playlist)
-      // console.log(this.player.vm)
-      // console.log(this.$data)
 
-      // console.log(this.player.data)
       // copy data from player object to vue instance
       if (this.player) {
-        Object.assign(this.$data, this.player.data)
+        Object.assign(this.$data.track, this.player.song)
       }
-      // console.log(this.$data)
     })
 
     // build the player
     let Player = function (vm, playlist) {
       // initialize the vue instance
       this.vm = vm
-      this.data = {}
+      this.song = {}
       this.index = 0
       this.playlist = playlist
     }
@@ -84,15 +82,12 @@ let app = new Vue({
       play (index) {
         let self = this
         let sound = null
-        let timer = ''
         let track = null
 
         index = typeof index === 'number' ? index : self.index
         track = self.playlist[index]
-        this.data.track = {}
-        this.data.track.name = track.name
+        Vue.set(self.song, 'name', track.name)
         
-        console.log(this.data)
         if (track.howl) {
           sound = track.howl
         }
@@ -100,8 +95,10 @@ let app = new Vue({
           sound = track.howl = new Howl({
             src: [track.file],
             html5: true,
-            onplay: function () {
-              timer = self.formatTime(Math.round(sound.duration()))
+            onplay () {
+              let duration = 0
+              duration = self.formatTime(Math.round(sound.duration()))
+              Vue.set(self.song, 'length', duration)
               requestAnimationFrame(self.step.bind(self))
             },
             onend () {
@@ -109,7 +106,7 @@ let app = new Vue({
             }
           })
         }
-        this.data.timer = timer
+        Object.assign(this, self)
         sound.play()
         self.index = index
       },
