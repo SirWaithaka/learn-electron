@@ -35,3 +35,40 @@ body {
 .progress:hover {
     height: 0.4rem;
 }
+
+.player-controls {
+    width: 100%;
+}
+.player-controls .player-controller {
+    display: inline-block;
+    height: 4rem;
+    width: 3rem;
+}
+.player-controller span {
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 4rem;
+    width: 3rem;
+    vertical-align: middle;
+}
+.player-controller-pause,
+.player-controller-play {
+    height: 4rem;
+    width: 3rem;
+}
+.player-controller-playlist {
+    background: url('../svg/list.svg');
+}
+.player-controller-prev {
+    background: url('../svg/step-backward.svg');
+}
+.player-controller-pause {
+    background: url('../svg/pause.svg');
+}
+.player-controller-play {
+    background: url('../svg/play.svg');
+}
+.player-controller-next {
+    background: url('../svg/step-forward.svg');
+}
