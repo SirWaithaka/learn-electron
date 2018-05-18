@@ -1,7 +1,9 @@
 # Electron Lessons
 
-## Application 1 | Getting Bitcoin Price through API
+## Application 2 | Music Player
 
-![Image from the Electron App](https://github.com/craftsmon/shop/blob/master/assets/images/project.png)
+![Image displaying the music player on startup](https://github.com/craftsmon/shop/blob/master/assets/images/player.png)
 
-In this application example using electron, i build an app that consumes an API that displays current rates on Bitcoin prices in USD.
+On startup the electron up loads like this.
+
+![Image displayin the music player upon loading a music folder](https://github.com/craftsmon/shop/blob/master/assets/images/playing.png)
