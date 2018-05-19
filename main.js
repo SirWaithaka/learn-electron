@@ -33,7 +33,7 @@ function createWindow () {
 			label: 'File',
 			submenu: [
 				{
-					label: 'Sound Control',
+					label: 'Open Directory',
 					accelerator: 'Ctrl+O',
 					click () {
 						openFolderDialog()
