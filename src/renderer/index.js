@@ -11,7 +11,8 @@ let app = new Vue({
       name: null,
       playing: false,
       length: 0
-    }
+    },
+    visible: false
   },
   computed: {
     length () {
@@ -19,10 +20,13 @@ let app = new Vue({
     },
     name () {
       return this.player ? this.player.song.name : this.track.name
+    },
+    playlist () {
+      return this.player ? this.player.playlist : 'No tracks added yet'
     }
   },
   methods: {
-    playMusic () {
+    playSong () {
       
       if (!this.track.playing) {
         
@@ -38,6 +42,24 @@ let app = new Vue({
           this.player.pause()
         }
       }
+    },
+    nextSong () {
+      if (this.player) {
+        this.player.skip('next')
+        this.track.playing = true
+      }
+    },
+    prevSong () {
+      if (this.player) {
+        this.player.skip('prev')
+        this.track.playing = true
+      }
+    },
+    seek (e) {
+      // this.player.seek()
+    },
+    togglePlaylist () {
+      this.visible = !this.visible
     }
   },
   mounted() {
@@ -68,8 +90,8 @@ let app = new Vue({
     let Player = function (vm, playlist) {
       // initialize the vue instance
       this.vm = vm
-      this.song = {}
       this.index = 0
+      this.song = {}
       this.playlist = playlist
     }
     Player.prototype = {

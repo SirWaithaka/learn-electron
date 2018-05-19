@@ -8,7 +8,7 @@
 <body>
   <div id="app" class="container-fluid bg-dark align-self-stretch">
     <div class="row">
-      <div class="col">
+      <div class="col-12">
         <nav class="nav">
           <span class="col-2 nav-link">
             <h1 class="h2">0.00</h1>
@@ -26,30 +26,38 @@
         <div class="progress">
           <div ref="progress" class="progress-bar bg-info" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <nav class="navbar fixed-bottom">
-          <div class="player-controls py-5">
-            <div class="row">
-              <span class="col-3 btn btn-dark player-controller">
-                <span class="player-controller-playlist"></span>
-              </span>
-              <span class="col-3 btn player-controller">
-                <span class="player-controller-prev"></span>
-              </span>
-              <span v-if="!track.playing" class="col-3 btn player-controller" v-on:click="playMusic">
-                <!-- Play btn -->
-                <span class="player-controller-play"></span>
-              </span>
-              <span v-if="track.playing" class="col-3 btn player-controller" v-on:click="playMusic">
-                <!-- Pause btn -->
-                <span class="player-controller-pause"></span>
-              </span>
-              <span class="col-3 btn player-controller">
-                <span class="player-controller-next"></span>
-              </span>
-            </div>
-          </div>
-        </nav>
       </div>
+      <div class="col-12">
+        <div ref="playlist" v-if="visible" class="my-5 py-5 playlist">
+          <ul class="list">
+            <h3 v-if="typeof playlist === 'string'" class="h3">{{ playlist }}</h3>
+            <li v-else-if="typeof playlist === 'object'" v-for="track in playlist" class="song"> {{ track.name }}</li>
+          </ul>
+        </div>
+      </div>
+      <nav class="col-12 navbar fixed-bottom">
+        <div class="player-controls py-5">
+          <div class="row">
+            <span v-on:click="togglePlaylist" class="col-3 btn player-controller">
+              <span class="player-controller-playlist"></span>
+            </span>
+            <span v-on:click="prevSong" class="col-3 btn player-controller">
+              <span class="player-controller-prev"></span>
+            </span>
+            <span v-if="!track.playing" v-on:click="playSong" class="col-3 btn player-controller">
+              <!-- Play btn -->
+              <span class="player-controller-play"></span>
+            </span>
+            <span v-if="track.playing" v-on:click="playSong" class="col-3 btn player-controller">
+              <!-- Pause btn -->
+              <span class="player-controller-pause"></span>
+            </span>
+            <span v-on:click="nextSong" class="col-3 btn player-controller">
+              <span class="player-controller-next"></span>
+            </span>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
   <!-- <script src="../node_modules/vue/dist/vue.min.js"></script>
