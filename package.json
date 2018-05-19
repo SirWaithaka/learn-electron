@@ -1,6 +1,6 @@
 {
   "name": "learn-electron",
-  "description": "### Clean Clean setup for learning electron",
+  "description": "Music Player application",
   "version": "0.0.0",
   "main": "main.js",
   "dependencies": {
